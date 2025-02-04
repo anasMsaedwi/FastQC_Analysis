@@ -62,10 +62,12 @@ FastQC generates an **HTML report** with key metrics:
 | **K-mer Content** | Overrepresented k-mers | Can indicate technical bias |
 
 ---
+![Assembly Workflow] (https://mgnify-ebi-2020.readthedocs.io/en/latest/_images/fastqc1.png)
 
 
 ---
-![Alt text] (https://mgnify-ebi-2020.readthedocs.io/en/latest/_images/fastqc1.png)
+
+
 ## 🔄 Automating FastQC with a Bash Script  
 --- 
 
