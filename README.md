@@ -8,11 +8,23 @@ This repository provides scripts and documentation for **FastQC**, a quality con
 
 ---
 
-## 🚀 FastQC Workflow  
+## 🚀 Installation  
 
-![FastQC Workflow](https://raw.githubusercontent.com/ewels/fastqc_images/main/fastqc_workflow.png)  
+### 🔹 Install FastQC on Linux/macOS  
+```bash
+# Install via Conda (recommended)
+conda install -c bioconda fastqc
 
-FastQC performs various checks on sequencing reads and generates a quality control report.  
+# OR download and install manually
+wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip
+unzip fastqc_v0.12.1.zip
+chmod +x FastQC/fastqc
+export PATH=$PWD/FastQC:$PATH  # Add FastQC to PATH
+```
+
+### 🔹 Install FastQC on Windows  
+- Download from [FastQC Official Website](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/).  
+- Run using **Git Bash, WSL, or a Linux Subsystem**.  
 
 ---
 
@@ -39,20 +51,15 @@ fastqc sample.fastq.gz -o fastqc_results/
 
 FastQC generates an **HTML report** with key metrics:  
 
-### ✅ Per-Base Sequence Quality  
-![Per Base Quality](https://raw.githubusercontent.com/ewels/fastqc_images/main/per_base_quality.png)  
-- Green: Good quality  
-- Yellow: Warning (moderate quality drop)  
-- Red: Bad quality (needs trimming)  
-
-### 🔍 Sequence Duplication Levels  
-![Sequence Duplication](https://raw.githubusercontent.com/ewels/fastqc_images/main/sequence_duplication.png)  
-- Low duplication = ✅ Good library complexity  
-- High duplication = ⚠ Possible PCR bias  
-
-### 🧬 Overrepresented Sequences  
-![Overrepresented Sequences](https://raw.githubusercontent.com/ewels/fastqc_images/main/overrepresented_sequences.png)  
-- Adaptors or contamination may be present  
+| **Module** | **Description** | **What to Check** |
+|------------|---------------|------------------|
+| **Per Base Sequence Quality** | Boxplots of quality scores | Should be high (>30) |
+| **Per Sequence Quality Scores** | Distribution of mean scores per read | Should be normally distributed |
+| **Per Base Sequence Content** | GC content across positions | Should be relatively stable |
+| **Per Base N Content** | Proportion of ambiguous bases (N) | Should be low (near 0%) |
+| **Sequence Duplication Levels** | % of duplicate reads | High duplication may indicate bias |
+| **Overrepresented Sequences** | Repetitive sequences present | May indicate adapter contamination |
+| **K-mer Content** | Overrepresented k-mers | Can indicate technical bias |
 
 ---
 
@@ -117,4 +124,3 @@ Rerun FastQC after trimming.
 ---
 
 🚀 **Now you're ready to analyze sequencing quality with FastQC!**  
-tQC!**  
